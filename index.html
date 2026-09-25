@@ -107,7 +107,7 @@
 <body>
 
 <h1>Inkbloom Privacy Policy</h1>
-<p class="updated">Last updated 23 September 2026</p>
+<p class="updated">Last updated 25 September 2026</p>
 
 <p class="lede">
   Inkbloom is a daily puzzle app. This policy explains what it collects, why, and
@@ -119,7 +119,7 @@
     <li>You can play the entire app without giving us your name or email.</li>
     <li>An account is created for you automatically, and it is anonymous.</li>
     <li>If you choose to appear on a leaderboard, the name you pick and your country become visible to other players. Nothing else you do is ever public. The daily leaderboards need a linked Google or Apple account; until you link one, your times stay on your device.</li>
-    <li>We do not sell your data, and we do not share it with data brokers. Ads are served by Google AdMob, which may use your device's advertising identifier — see Advertising below.</li>
+    <li>We do not sell your data, and we do not share it with data brokers. Ads are served by Google AdMob, which may use your device's advertising identifier — see Advertising below. Where the law requires a consent form, ads, ad measurement and analytics all wait for your answer; crash reporting is on from the start and carries no account identifier.</li>
     <li>You can ask us to delete everything, and we will.</li>
   </ul>
 </div>
@@ -194,15 +194,24 @@
   <li>
     <strong>Crash reports and diagnostics</strong> through Firebase Crashlytics, so
     a crash can be found and fixed. These include the device model, operating system
-    version, and where in the app the failure happened.
+    version, and where in the app the failure happened. They are essential
+    diagnostics and are collected from the first launch, but they carry
+    <strong>no account identifier</strong>: a report says what failed and where, not
+    whose phone it was.
   </li>
   <li>
-    <strong>Anonymous usage events</strong> through Firebase Analytics: that a puzzle
-    was started, completed or abandoned, and with which game and how long it took;
-    that a day was completed; that a streak reached a milestone; that an ad was shown
-    or opted into; that a purchase screen was viewed or a purchase made; and that
-    notifications were turned on. These are counted in aggregate to understand which
-    puzzles people enjoy. They are tied to your account identifier, not to your name.
+    <strong>Usage events</strong> through Firebase Analytics: that a puzzle was
+    started, completed or abandoned, and with which game and how long it took; that a
+    day was completed; that a streak reached a milestone; that an ad was shown or opted
+    into; that a purchase screen was viewed or a purchase made; and that notifications
+    were turned on. These are counted in aggregate to understand which puzzles people
+    enjoy. They are tied to your account identifier, not to your name.
+    <strong>Analytics is switched off when the app starts</strong> and is turned on
+    only by your answer to the consent question described under Advertising: where
+    Google's form is required, nothing is collected until you have accepted it, and
+    nothing is collected if you decline or later withdraw; elsewhere, collection begins
+    once the app has confirmed that no form is required where you are. Analytics does
+    not collect your device's advertising identifier.
   </li>
   <li>
     <strong>An attestation token</strong> through Firebase App Check, which confirms
@@ -215,9 +224,13 @@
 <p>
   If you allow them, Inkbloom sends at most two notifications a day: one when the
   new page is ready, and one in the evening only if a streak of three days or more
-  is about to end. Both are scheduled on your own device. You can turn either off in
-  the You tab, or all of them in your system settings. Turning them off does not
-  affect anything else.
+  is about to end. Both are scheduled on your own device, by the app, from your
+  device's own clock. <strong>The app does not register for push notifications and
+  requests no push token.</strong> Firebase Cloud Messaging is included in the app for
+  a possible server-sent note in the future, but it is switched off, so no messaging
+  identifier is created or sent to Google; if that ever changes, this policy will say
+  so first. You can turn either notification off in the You tab, or all of them in
+  your system settings. Turning them off does not affect anything else.
 </p>
 
 <h3>Advertising</h3>
@@ -225,9 +238,10 @@
   Inkbloom shows ads through Google AdMob. Ads never appear inside a puzzle. You
   will see them on menu screens, occasionally between practice puzzles, and as
   optional rewarded videos you choose to watch in exchange for hints or Ink Drops.
-  AdMob may use your device's advertising identifier to select ads. You can remove
-  banner and interstitial ads permanently with a one-time purchase, or with
-  Inkbloom Plus.
+  AdMob may use your device's advertising identifier to select and measure ads; it is
+  the only part of the app that uses that identifier, and Firebase Analytics is
+  configured not to collect it. You can remove banner and interstitial ads
+  permanently with a one-time purchase, or with Inkbloom Plus.
 </p>
 <h3>Asking you about ads first</h3>
 <p>
@@ -236,7 +250,12 @@
   requested</strong>. It waits until the first-run introduction is over, so it is
   never the first thing you see, and nothing is fetched from AdMob until you have
   answered it. If your answer does not allow ads, none are asked for at all: no
-  banner is placed, and no video is fetched.
+  banner is placed, and no video is fetched. The same answer governs measurement:
+  the advertising SDK's own app-measurement component is held back until consent has
+  been given (it starts only inside the SDK start-up that follows a yes), and Firebase
+  Analytics is turned on by that same yes and stays off after a no, as described under
+  Technical and diagnostic data. Where no form is required, both begin once Google's
+  consent platform has confirmed that for your region.
 </p>
 <p>
   You can change that answer whenever you like. Where the form was required, the
@@ -282,8 +301,8 @@
     </thead>
     <tbody>
       <tr>
-        <td>Google Firebase — Authentication, Firestore, Analytics, Crashlytics, App Check, Cloud Messaging</td>
-        <td>Accounts, saved progress, leaderboards, diagnostics, notifications</td>
+        <td>Google Firebase — Authentication, Firestore, Analytics, Crashlytics, App Check</td>
+        <td>Accounts, saved progress, leaderboards, usage events (after consent), diagnostics</td>
       </tr>
       <tr><td>Google AdMob</td><td>Advertising</td></tr>
       <tr><td>Google Play Billing and the Apple App Store</td><td>Payments</td></tr>
@@ -319,7 +338,7 @@
     <strong>Answer the ad consent form as you wish, and change your mind.</strong>
     Where the law requires that form, it appears before any ad is requested, and
     <strong>Ad privacy choices</strong> in the You tab reopens it at any time. A
-    changed answer takes effect at once.
+    changed answer takes effect at once, for ads, ad measurement and analytics alike.
   </li>
   <li>
     <strong>Say no to tracking.</strong> On iPhone and iPad, Apple's tracking
@@ -334,12 +353,18 @@
     and your country. It stays in your account, and returns when you sign in again.
   </li>
   <li>
-    <strong>Ask for a copy of your data, or for its deletion.</strong>
-    <strong>Delete account</strong> in the You tab writes the email for you, with
-    your account ID already in it; or write to
-    <a href="mailto:sriramgoparaju99@gmail.com">sriramgoparaju99@gmail.com</a>. We
-    will confirm within thirty days. Deleting your account removes your profile,
-    your progress and your streak.
+    <strong>Delete your account, or ask for a copy of your data.</strong>
+    <strong>You → Account &amp; privacy → Delete account</strong> deletes your account
+    and everything stored against it at once — your profile, your progress, your
+    streak and settings, your rows on every leaderboard, and your customer record
+    with RevenueCat — and the app starts fresh as a new guest. If you no longer have
+    the app and had linked a Google or Apple account, write to
+    <a href="mailto:sriramgoparaju99@gmail.com">sriramgoparaju99@gmail.com</a> from
+    that address and we will confirm within thirty days; a guest account can only be
+    deleted from the app, because nothing else proves it is yours. For a copy of
+    your data, write to the same address. The
+    <a href="delete-account.html">account deletion page</a> has the details, including
+    what stays and why.
   </li>
 </ul>
 <p>
