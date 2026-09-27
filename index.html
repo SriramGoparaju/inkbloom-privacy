@@ -107,7 +107,7 @@
 <body>
 
 <h1>Inkbloom Privacy Policy</h1>
-<p class="updated">Last updated 25 September 2026</p>
+<p class="updated">Last updated 27 September 2026</p>
 
 <p class="lede">
   Inkbloom is a daily puzzle app. This policy explains what it collects, why, and
@@ -243,19 +243,31 @@
   configured not to collect it. You can remove banner and interstitial ads
   permanently with a one-time purchase, or with Inkbloom Plus.
 </p>
+<p>
+  When it shows an ad, Google's advertising SDK also collects, by Google's own
+  description, your device's IP address (which may be used to estimate your general
+  location), how you interact with ads (such as taps and video views), and
+  performance information about the app and the SDK. Google uses this for
+  advertising, analytics and fraud prevention, under
+  <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Inkbloom
+  itself does not collect your location.
+</p>
 <h3>Asking you about ads first</h3>
 <p>
   Where the law gives you the choice — the EEA, the UK, and other regions Google
   recognises — <strong>Google's consent form is shown before any ad is
   requested</strong>. It waits until the first-run introduction is over, so it is
   never the first thing you see, and nothing is fetched from AdMob until you have
-  answered it. If your answer does not allow ads, none are asked for at all: no
-  banner is placed, and no video is fetched. The same answer governs measurement:
-  the advertising SDK's own app-measurement component is held back until consent has
-  been given (it starts only inside the SDK start-up that follows a yes), and Firebase
-  Analytics is turned on by that same yes and stays off after a no, as described under
-  Technical and diagnostic data. Where no form is required, both begin once Google's
-  consent platform has confirmed that for your region.
+  answered it. The advertising SDK's own app-measurement component is held back
+  until then, and starts only when the SDK starts after your answer. If you decline,
+  Google may still show <em>limited ads</em>: ads it does not personalise, served
+  within the choices you made in the form. If your answer does not allow ads at all,
+  none are asked for: no banner is placed, and no video is fetched.
+  <strong>Firebase Analytics follows your answer separately</strong>: it is turned on
+  only if you agree to information being stored on and read from your device, and
+  stays off if you decline, as described under Technical and diagnostic data. Where no
+  form is required, ads and analytics begin once Google's consent platform has
+  confirmed that for your region.
 </p>
 <p>
   You can change that answer whenever you like. Where the form was required, the
