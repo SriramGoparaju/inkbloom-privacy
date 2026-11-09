@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inkbloompuzzles.com/sitemap.xml
